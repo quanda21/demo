@@ -33,7 +33,7 @@ const username = ref('')
 const password = ref('')
 
 const handleLogin = async () => {
-    if (username.value === 'admin' && password.value === 'password') {
+    if (username.value === 'admin' && password.value === '1') {
         alert('Login successful!')
         window.location.href = '/photos'
     } else {

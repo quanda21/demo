@@ -11,7 +11,7 @@ import { BellFilled, UserFilled, Menu, Search } from '@element-plus/icons-vue'
     <img src="D:\CTVP\test_vue\src\assets\logo.svg " alt="Unsplash "   class="h-8">
   </div>
   <div class="flex  bg-gray-200 p-2 rounded-full w-75% min-w-50">
-    <span class="mr-2">🔍</span>
+    <el-button :icon="Search" circle />
     <input type="text" class="border-none outline-none bg-transparent w-full" placeholder="Search photos and illustrations">
   </div>
   <div class="flex items-center gap-5">

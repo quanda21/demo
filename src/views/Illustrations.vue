@@ -66,7 +66,7 @@ onMounted(() => {
         </li>
       </ul>
 </div>
-<div class="w-1/6 ml-3 flex-1 bg-white p-4 rounded-lg relative">
+<div class="w-1/6 ml-3 flex-1 bg-gray-100 p-4 rounded-lg relative">
   
   <ul class=" text-left">
     <el-button class="mt-4 bg-gray-100  text-black  py-1 rounded min-w-max ">Strategy</el-button>
@@ -80,11 +80,26 @@ onMounted(() => {
 
 </section>
 
-        <section class="p-6 grid grid-cols-3 gap-6">
+        <!-- <section class="p-5 grid grid-cols-3 gap-5">
           <div v-for="(image, index) in images" :key="index" class="w-full flex flex-col">
     <router-link :to="{ name: 'ImageDetail', params: { id: image.id } }">
       <img :src="image.urls.small" class="w-full h-auto rounded-lg shadow-lg object-cover cursor-pointer" />
     </router-link>
   </div>
-        </section>
+        </section> -->
+        <section class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4 p-3">
+  <div
+    v-for="(image, index) in images"
+    :key="index"
+    class="break-inside-avoid mb-4"
+  >
+    <router-link :to="{ name: 'ImageDetail', params: { id: image.id } }">
+      <img
+        :src="image.urls.small"
+        class="w-full rounded-lg shadow-lg object-cover cursor-pointer"
+      />
+    </router-link>
+  </div>
+</section>
+
 </template>

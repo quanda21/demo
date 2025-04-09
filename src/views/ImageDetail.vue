@@ -36,6 +36,7 @@ const downloadImage = (url) => {
   link.click()
 }
 
+
 onMounted(fetchImageDetail)
 </script>
 
@@ -109,7 +110,7 @@ onMounted(fetchImageDetail)
     <!-- Địa điểm -->
     <div class="flex items-center gap-2">
       <el-icon><Location /></el-icon>
-      <span>{{ image.location?.name || 'Unknown location' }}</span>
+      <span>{{ image.location?.name || '' }}</span>
     </div>
 
     <!-- Ngày đăng -->

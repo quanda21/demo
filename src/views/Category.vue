@@ -39,6 +39,7 @@ data.forEach((photo) => {
   }
 })
 
+
 //    4 người đóng góp hàng đầu
 contributors.value = Array.from(contributorMap.values())
   .sort((a, b) => b.count - a.count)
@@ -47,6 +48,7 @@ contributors.value = Array.from(contributorMap.values())
 console.error('Error fetching topic photos:', error)
 }
 }
+
 
 
 // Gọi API mỗi khi topic được thay đổi
@@ -64,17 +66,18 @@ watchEffect(() => {
 
   <div class="flex w-1/2 bg-gray-100 p-6 rounded-lg relative text-black">
   
-  <div class="w-1/2 flex flex-col justify-center">
-    <h2 class="text-xl font-bold">Unlock everything {{ category }} has to offer.</h2>
+  <div class=" flex flex-col justify-center">
+    <h2 class="text-xl font-bold capitalize"> {{ category }} </h2>
     <p class="text-gray-600 mt-2">Cancel anytime.</p>
-    <el-button class="mt-4 bg-black text-white px-4 py-2 rounded">Upgrade to {{ category }}</el-button>
+    <p class="text-gray-600 mt-2">From epic drone shots to inspiring moments in nature — submit your best desktop and mobile backgrounds.</p>
+    <el-button class="mt-4  bg-black text-white px-4 py-2 rounded w-1/2 capitalize ">Upgrade to {{ category }}</el-button>
   </div>
     
-  <div class="w-1/2 flex justify-center items-center">
+  <!-- <div class="w-1/2 flex justify-center items-center">
     <img src="D:\CTVP\test_vue\src\assets\logo.svg " alt="Banner Image" class="w-3/4 h-auto object-cover rounded-lg">
+  </div> -->
   </div>
-  </div>
-   <div class="ml-5 flex-1 bg-gray-100 p-4 rounded-lg">
+   <div class="ml-5 flex-1 bg-gray-200 p-4 rounded-lg ">
       <h3 class="text-lg font-bold text-black">Top Contributors</h3>
       <ul>
         <li v-for="(contributor, index) in contributors" :key="index" class="flex items-center gap-3 mt-2">
@@ -84,15 +87,15 @@ watchEffect(() => {
       </ul>
     </div>
 
-  <div class="w-1/6 ml-3 flex-1 bg-white p-4 rounded-lg relative">
+  <div class="w-1/6 ml-3 flex-1 bg-gray-200 p-4 rounded-lg relative">
     <img v-if="photos.length > 0" :src="photos[0].urls?.small" class="w-full h-60 object-cover rounded-lg shadow-lg">
     <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
       <h3 class="text-lg font-bold">{{ photos[0 ].user?.name || '' }}</h3>
     </div>
   </div>
-</section>
+</section> 
 
-<section class="p-6 grid grid-cols-3 gap-4">
+<section class="p-3 columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4 p-3">
     <div v-for="(photo, index) in photos" :key="index" class="relative group flex flex-col items-center">  
       <router-link :to="{ name: 'ImageDetail', params: { id: photo.id } }">
   <img v-if="photo.urls?.small" :src="photo.urls.small" class="w-full h-auto object-cover rounded-lg shadow-lg cursor-pointer" >
@@ -101,8 +104,10 @@ watchEffect(() => {
       <div class="absolute bottom-2 left-2 right-2 bg-black bg-opacity-50 text-white text-sm font-medium p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {{ photo.user?.name || 'Unknown' }}
       </div>
-      
+    
       <p class="text-sm text-gray-600 mt-2 text-center">{{ photo.description || '' }}</p>
     </div> 
   </section>
-</template>
+</template> 
+
+ 
