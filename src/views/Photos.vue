@@ -8,7 +8,7 @@ const collections = ref([]) // Khai báo biến collections để lưu trữ dan
 // api lấy ảnh ngẫu nhiên
 const fetchImages = async () => {
   try {
-    const response = await fetch('https://api.unsplash.com/photos/random?count=10&client_id=BDJtgIpwKdj1jPBrRmJEQmq16cBgB02b_VZuHtrqcy8')
+    const response = await fetch('https://api.unsplash.com/photos/random?count=20&client_id=BDJtgIpwKdj1jPBrRmJEQmq16cBgB02b_VZuHtrqcy8')
     images.value = await response.json()
   } catch (error) {
     console.error('Error fetching images:', error)
@@ -32,6 +32,19 @@ const fetchCollections = async () => {
   }
 }
 
+const randomImage = ref('https://api.unsplash.com/photos/random&client_id=BDJtgIpwKdj1jPBrRmJEQmq16cBgB02b_VZuHtrqcy8') // ảnh mặc định
+
+// Danh sách từ API bạn đã có (images.value)
+const changeRandomImage = () => {
+  if (images.value.length > 0) {
+    const randomIndex = Math.floor(Math.random() * images.value.length)
+    randomImage.value = images.value[randomIndex].urls.small
+  }
+}
+
+
+
+
 onMounted(() => {
   fetchImages()
   fetchCollections()
@@ -39,7 +52,7 @@ onMounted(() => {
 </script>
 
 <template>
-     <section class="flex justify-between  top-0    mt-40  ">
+     <section class="flex justify-between  top-0    mt-40  ">  
 
 <div class="flex w-1/2 bg-gray-100 p-6 rounded-lg relative text-black">
 
@@ -50,7 +63,12 @@ onMounted(() => {
 </div>
   
 <div class="w-1/2 flex justify-center items-center">
-  <img src="D:\CTVP\test_vue\src\assets\logo.svg " alt="Banner Image" class="w-3/4 h-auto object-cover rounded-lg">
+  <img
+    :src="randomImage"
+    alt="Banner Image"
+    class="w-3/4 h-3/4 object-cover 	object-contain ssrounded-lg transition duration-300"
+    @mouseenter="changeRandomImage"
+  />
 </div>
 </div>
 <div class="ml-5 flex-1 bg-gray-100 p-4 rounded-lg">

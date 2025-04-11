@@ -1,6 +1,6 @@
 <script setup>
-import { ElButton, ElDropdown, ElDropdownMenu, ElDropdownItem, ElIcon } from 'element-plus'
-import { BellFilled, UserFilled, Menu, Search } from '@element-plus/icons-vue'
+import { ElButton, ElDropdown, ElDropdownMenu, ElDropdownItem, ElIcon,ElTooltip } from 'element-plus'
+import { BellFilled, UserFilled, Menu, Search , Camera } from '@element-plus/icons-vue'
 </script>
 
 <template>
@@ -13,10 +13,15 @@ import { BellFilled, UserFilled, Menu, Search } from '@element-plus/icons-vue'
   <div class="flex  bg-gray-200 p-2 rounded-full w-75% min-w-50">
     <el-button :icon="Search" circle />
     <input type="text" class="border-none outline-none bg-transparent w-full" placeholder="Search photos and illustrations">
-  </div>
+    <el-tooltip content="Scan image" placement="top">
+    <el-icon class="w-10 h-full cursor-pointer text-gray-600">
+      <Camera />
+    </el-icon>
+  </el-tooltip>  </div>
   <div class="flex items-center gap-5">
-    <el-button type="info" class="text-sm h-full flex items-center border-1 border-gray-300 px-5 py-2">Get Unsplash+</el-button>
-    <el-button type="primary" class="text-sm h-full flex items-center px-3 py-1">Submit an image</el-button>
+    
+      <el-button  link class="text-sm h-full flex items-center  px-5 py-2">Get Unsplash+</el-button>
+      <el-button  class="text-sm h-full flex items-center px-3 py-1">Submit an image</el-button>
     <div class="flex items-center gap-5">
       <el-icon class="w-5 h-5 text-black"><BellFilled /></el-icon>
       <!-- Dropdown  -->
@@ -34,7 +39,7 @@ import { BellFilled, UserFilled, Menu, Search } from '@element-plus/icons-vue'
       <el-dropdown-item divided class="text-red-500" @click="$router.push('/login')">Logout</el-dropdown-item>
     </el-dropdown-menu>
   </template>
-</el-dropdown>
+</el-dropdown>     
 
       <el-icon class="w-5 h-5 text-black"><Menu /></el-icon>
     </div>
@@ -61,6 +66,7 @@ import { BellFilled, UserFilled, Menu, Search } from '@element-plus/icons-vue'
 
 </header>
 </template>
+
 
 
 

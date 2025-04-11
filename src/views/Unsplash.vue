@@ -35,7 +35,7 @@ onMounted(fetchImages)
   <img src="D:\CTVP\test_vue\src\assets\logo.svg " alt="Banner Image" class="w-3/4 h-auto object-cover rounded-lg">
 </div>
 </div>
-<div class=" ml-5 flex-1 bg-gray-100 p-4 rounded-lg relative uno-nav-link  border-black">
+<div class=" ml-5 flex-1 bg-gray-100 p-4 rounded-lg relative uno-nav-link  ">
   <h3 class="text-lg font-bold">Collections</h3>
   <ul>
     <li class="flex items-center gap-2 mt-2 "><img src="" class="w-10 h-10 rounded "> Lucky Bites</li>

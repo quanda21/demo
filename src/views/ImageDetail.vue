@@ -57,7 +57,7 @@ onMounted(fetchImageDetail)
           <div class="text-sm text-blue-500">Available for hire</div>
         </div>
       </div>
-
+ 
       <div class="flex items-center gap2">
         <button @click="toggleLike" class="hover:text-red-600">
                <el-icon :class="image.liked ? 'text-red-500' : 'text-gray-500'">
